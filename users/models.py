@@ -8,6 +8,7 @@ from django.contrib.auth.models import UserManager
 # Create your models here.
 class UserProfile(AbstractUser):
 	id = models.AutoField(primary_key=True)
+	phone = models.CharField(max_length=30, verbose_name='手机', default='')
 	add_time = models.DateTimeField(default=datetime.now, verbose_name='注册时间')
 
 	USERNAME_FIELD = 'username'

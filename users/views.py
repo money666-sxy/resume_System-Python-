@@ -12,6 +12,7 @@ def index(request):
 
 
 class LoginView(View):
+	'''用户登录'''
 	def get(self, request):
 		return render(request, "login.html")
 
@@ -29,13 +30,25 @@ class LoginView(View):
 
 
 class RegisterView(View):
+	'''用户注册'''
 	def get(self, request):
 		return render(request, 'register.html')
 
 	def post(self, request):
 		user_name = request.POST.get("username")
 		pass_word = request.POST.get("password")
-		user = UserProfile.objects.create(username=user_name, password=make_password(pass_word))
+		phone = request.POST.get("phone")
+		email = request.POST.get("email")
+		print(phone)
+		print(email)
+		user = UserProfile.objects.create(username=user_name, password=make_password(pass_word), phone=phone, email=email)
 		print(user is None)
 		login(request, user)
 		return render(request, 'index.html')
+
+
+
+def userLogout(request):
+	logout(request)
+	print('已退出的登录')
+	return render(request, "index.html")
