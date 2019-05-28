@@ -19,7 +19,7 @@ class LoginView(View):
 		user_name = request.POST.get("username")
 		pass_word = request.POST.get("password")
 		user = UserProfile.objects.get(username=user_name)
-		user = auth.authenticate(username=user_name, password=check_password(pass_word))
+		user = auth.authenticate(username=user_name, password=check_password(pass_word, user.password))
 		if user is not None:
 			login(request, user)
 			print("user{} login!", user.get_username())
