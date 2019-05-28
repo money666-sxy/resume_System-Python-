@@ -12,14 +12,12 @@
         <link href="/static/css/index.css" type="text/css" rel="stylesheet" />
     </head>
 
-
     <body background="/static/image/login2.jpg">
         <div class="info-card">
             <div class="card">
                 <h2 class="info-card-header">登录</h2>
                 <div class="row">
-                    <form class="col s12" id="log_form" method="post">
-                        {% csrf_token %}
+                    <form class="col s12" id="log_form" method="post" action="">
                         <div class="row" style="margin-left: 50px;">
                             <div class="row">
                                 <div class="input-field col s10">
@@ -52,6 +50,7 @@
                             <a class="waves-effect waves-light btn col s4" style="margin-left: 30px" href="/">返回</a>
                         </div>
                             <script src="/static/js/login.js"></script>
+                            {% csrf_token %}
                     </div>
                     </form>
                 </div>

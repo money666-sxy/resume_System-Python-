@@ -19,14 +19,19 @@ class LoginView(View):
 	def post(self, request):
 		user_name = request.POST.get("username")
 		pass_word = request.POST.get("password")
-		user = UserProfile.objects.get(username=user_name)
-		user = auth.authenticate(username=user_name, password=check_password(pass_word, user.password))
-		if user is not None:
-			login(request, user)
-			print("user{} login!", user.get_username())
-			return render(request, "index.html")
-		else:
-			return render(request, "index.html")
+
+		try:
+			user = UserProfile.objects.get(username=user_name)
+			if check_password(pass_word, user.password) is not True:
+				user = None
+			if user is not None:
+				login(request, user)
+				print("user{} login!".format(user.get_username()))
+				return render(request, "index.html")
+			else:
+				return render(request, "login.html")
+		except:
+			return render(request, "login.html")
 
 
 class RegisterView(View):
