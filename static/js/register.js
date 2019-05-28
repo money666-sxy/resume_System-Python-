@@ -6,7 +6,7 @@ function register() {
         var elem = document.getElementById('modal1')
         var instances = M.Modal.init(elem)
     } else {
-        document.getElementById("register_form").submit()
+        document.getElementById("reg_form").submit()
     }
 }
 

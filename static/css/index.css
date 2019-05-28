@@ -1,0 +1,23 @@
+#header-container {
+    height: 600px;
+}
+
+.info-card {
+    width: 600px;
+    height: 400px;
+    margin: auto;
+    margin-top: 200px;
+    background: white
+}
+
+
+.info-card-header {
+    padding-left: 55px;
+    padding-top: 55px;
+}
+
+
+.modal {
+    margin-top: 130px;
+}
+
