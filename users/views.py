@@ -46,9 +46,12 @@ class RegisterView(View):
 		email = request.POST.get("email")
 		print(phone)
 		print(email)
-		user = UserProfile.objects.create(username=user_name, password=make_password(pass_word), phone=phone, email=email)
-		print(user is None)
-		login(request, user)
+		try:
+			user = UserProfile.objects.create(username=user_name, password=make_password(pass_word), phone=phone, email=email)
+			print(user is None)
+			login(request, user)
+		except:
+			return render(request, 'register.html')
 		return render(request, 'index.html')
 
 
