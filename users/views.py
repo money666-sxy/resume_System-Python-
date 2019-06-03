@@ -55,6 +55,13 @@ class RegisterView(View):
 		return render(request, 'index.html')
 
 
+class InfoListView(View):
+	def get(self, request):
+		return render(request, 'infolist.html')
+
+	def post(self, request):
+		return render(request, 'infolist.html')
+
 
 def userLogout(request):
 	logout(request)
